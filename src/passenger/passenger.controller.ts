@@ -17,7 +17,7 @@ export class PassengerController {
 
     @Get(':id')
     @ApiOperation({ summary: 'Get passenger by id'})
-    @ApiResponse({ status: 200, description: 'Return the passenger with giving id.', type:[Passenger]})
+    @ApiResponse({ status: 200, description: 'Return the passenger with given id.', type:[Passenger]})
     findById(@Param('id') id: number) {
         return this.passengerService.findById(id);
     }

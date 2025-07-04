@@ -23,7 +23,7 @@ export class DriverController {
   }
 
   @Get('/nearby')
-  @ApiOperation({ summary: 'Get active drivers from x distance of a giving location'})
+  @ApiOperation({ summary: 'Get active drivers from x distance of a given location'})
   @ApiResponse({ status: 200, description: 'Return nearby drivers.', type:[Driver]})
   async getNearbyDrivers(
     @Query('latitude') latitude: number,
@@ -35,7 +35,7 @@ export class DriverController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get driver by id'})
-  @ApiResponse({ status: 200, description: 'Return the driver with giving id.', type:[Driver]})
+  @ApiResponse({ status: 200, description: 'Return the driver with given id.', type:[Driver]})
   findById(@Param('id') id: number) {
     return this.driverService.findById(id);
   }
