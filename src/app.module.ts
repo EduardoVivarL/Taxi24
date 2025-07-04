@@ -3,9 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DriverModule } from './driver/driver.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Driver } from './entities/driver.entity';
+import { Driver } from './driver/entities/driver.entity';
 import { ConfigService } from './config.service';
 import { PassengerModule } from './passenger/passenger.module';
+import { TravelModule } from './travel/travel.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { PassengerModule } from './passenger/passenger.module';
       }, 
     }),
     DriverModule,
-    PassengerModule
+    PassengerModule,
+    TravelModule
   ],
   controllers: [AppController],
   providers: [AppService],

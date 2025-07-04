@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { PassengerService } from './passenger.service';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
-import { Passenger } from 'src/entities/passenger.entity';
+import { Passenger } from './entities/passenger.entity';
 
 @ApiTags('passenger')
 @Controller('passenger')

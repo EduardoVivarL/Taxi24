@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { DriverService } from './driver.service';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
-import { Driver } from 'src/entities/driver.entity';
+import { Driver } from 'src/driver/entities/driver.entity';
 
 @ApiTags('driver')
 @Controller('drivers')
@@ -31,6 +31,17 @@ export class DriverController {
     @Query('distance') distance: number,
   ) {
     return this.driverService.getDriversByLocation(latitude, longitude, distance);
+  }
+
+  @Get('/nearest')
+  @ApiOperation({ summary: 'Get active drivers from x distance of a given location'})
+  @ApiResponse({ status: 200, description: 'Return nearby drivers.', type:[Driver]})
+  async getNearestDrivers(
+    @Query('latitude') latitude: number,
+    @Query('longitude') longitude: number,
+    @Query('returnedDrivers') returnedDrivers: number,
+  ) {
+    return this.driverService.getDriversNearestFromLocation(latitude, longitude, returnedDrivers);
   }
 
   @Get(':id')
