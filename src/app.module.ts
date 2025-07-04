@@ -3,8 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DriverModule } from './driver/driver.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Driver } from './Entities/driver.entity';
+import { Driver } from './entities/driver.entity';
 import { ConfigService } from './config.service';
+import { PassengerModule } from './passenger/passenger.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { ConfigService } from './config.service';
         instanceName: ConfigService.get('DB_INSTANCE_NAME')?.toString(),
       }, 
     }),
-    DriverModule
+    DriverModule,
+    PassengerModule
   ],
   controllers: [AppController],
   providers: [AppService],
