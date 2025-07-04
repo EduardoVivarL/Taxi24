@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('Driver', { schema: 'dbo' })
 export class Driver {
   @PrimaryGeneratedColumn({name: 'DriverID'})
-  DriverId: number;
+  driverId: number;
 
   @Column({name: 'FirstName'})
   firstName: string;

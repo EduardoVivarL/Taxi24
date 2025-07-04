@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { DriverService } from './driver.service';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
-import { Driver } from 'src/Entities/driver.entity';
+import { Driver } from 'src/entities/driver.entity';
 
 @ApiTags('driver')
 @Controller('drivers')
